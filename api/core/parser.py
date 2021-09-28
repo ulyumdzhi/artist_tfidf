@@ -6,7 +6,29 @@ from joblib import Parallel, delayed
 load_dotenv()
 API_TOKEN = os.getenv('GEN_TOKEN')
 
-names = []
+names = ['Gorillaz', 
+'Depeche mode', 
+'Muse', 'Metallica', 
+'Flo rida', 'Grandson', 
+'Oomph!', 'Imagine dragons', 
+'Michael jackson', 
+'Placebo', 
+'Blues saraceno', 
+'System of a down', 
+'Arctic monkeys', 
+'Lmfao', 'Starset', 
+'Oh wonder', 'Coldplay', 
+'The prodigy', 'Disturbed', 
+'The neighbourhood', 'Tardigrade inferno', 
+'Scorpions', 'Shinoda', 'Fall out boy', 
+'Dope', 'Keane', 'Linkin park', 
+'Papa roach', 'The cranberries', 
+'Neffex', 'Thirty seconds to mars', 
+'Drake', 'Billie eilish', 'Queen', 'Ac/dc', 
+"Guns'n'roses", 'Eminem', 'Thousand foot krutch', 
+'Meg myers', 'Led zeppelin', 'Skindred', 'Rammstein', 
+'The pretty reckless', 'Nickelback', 'Bring me the horizon', 
+'Halsey', 'Black eyed peas', 'Maroon 5', 'Hollywood undead', 'Nazareth']
 
 def get_lyrics(name, k):
   c = 0 
@@ -22,4 +44,6 @@ def get_lyrics(name, k):
   except:   
     print(f"some exception at {name}: {c}")
 
-songs = Parallel(n_jobs=20, verbose=1)(delayed(get_lyrics)(i, 5) for i in names)
+songs = Parallel(n_jobs=20, verbose=1)(delayed(get_lyrics)(i, 10) for i in names)
+
+# print(len(names))
